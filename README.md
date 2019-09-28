@@ -1,2 +1,2 @@
-# project_airbnb-clone
- Cloning Airbnb with django
+# **Airbnb-clone**
+ Cloning Airbnb with Python, Django, Tailwind
