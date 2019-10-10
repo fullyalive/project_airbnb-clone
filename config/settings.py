@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+THIRD_PARTY_APPS = ["django_countries"]
+
 DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
