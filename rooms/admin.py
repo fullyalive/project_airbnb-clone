@@ -13,7 +13,21 @@ class ItemAdmin(admin.ModelAdmin):
 @admin.register(models.Room)
 class RoomAdmin(admin.ModelAdmin):
 
-    """ Item Admin Definition """
+    """ Room Admin Definition """
+
+    fieldsets = (
+        ("호스트정보", {"fields": ("host",)}),
+        ("기본정보", {"fields": ("name", "description", "country", "address", "price")}),
+        ("운영정보", {"fields": ("check_in", "check_out", "instant_book")}),
+        ("방정보", {"fields": ("guests", "beds", "bedrooms", "baths")}),
+        (
+            "시설정보",
+            {
+                "classes": ("collapse",),
+                "fields": ("facilities", "amenities", "house_rules"),
+            },
+        ),
+    )
 
     list_display = (
         "name",
@@ -29,9 +43,11 @@ class RoomAdmin(admin.ModelAdmin):
         "instant_book",
     )
 
-    list_filter = ("instant_book", "city")
+    list_filter = ("host__superhost", "instant_book", "room_type", "facilities", "city")
 
-    search_fields = ("^city", "^host__username",)
+    search_fields = ("^city", "^host__username")
+
+    filter_horizontal = ("facilities", "amenities", "house_rules")
 
 
 @admin.register(models.Photo)
