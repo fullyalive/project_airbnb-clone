@@ -7,4 +7,13 @@ class ReservationAdmin(admin.ModelAdmin):
 
     """ Reservation Admin Definition """
 
-    pass
+    list_display = (
+        "in_progress",
+        "room",
+        "status",
+        "guest",
+        "check_in",
+        "check_out",
+    )
+
+    list_filter = ("status",)
