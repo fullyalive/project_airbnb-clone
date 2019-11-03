@@ -66,7 +66,7 @@ class RoomAdmin(admin.ModelAdmin):
 
     list_filter = ("host__superhost", "instant_book", "room_type", "facilities", "city")
 
-    raw_id_fields = ("host",)
+    raw_id_fields = ("host",)  # 유저가 많아질 때 foreign key를 통해 host 를 더 나은 방법으로 찾기 위해서
 
     search_fields = ("^city", "^host__username")
 

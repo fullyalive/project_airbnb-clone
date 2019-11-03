@@ -99,6 +99,11 @@ class Room(core_models.TimeStampedModel):
     def __str__(self):
         return self.name
 
+    # admin에서 소문자로 적은 city를 City로 바꿔주기 위한 메소드
+    def save(self, *args, **kwargs):
+        self.city = str.capitalize(self.city)
+        super().save(*args, **kwargs)
+
     def total_rating(self):
         all_reviews = self.reviews.all()
         all_ratings = 0
