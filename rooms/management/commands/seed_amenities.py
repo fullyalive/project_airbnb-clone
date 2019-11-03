@@ -3,6 +3,9 @@ from rooms.models import Amenity
 
 
 class Command(BaseCommand):
+
+    help = "Amenities를 생성하기 위한 커맨드입니다."
+
     def handle(self, *args, **options):
         amenities = [
             "에어컨",
@@ -50,4 +53,4 @@ class Command(BaseCommand):
 
         for a in amenities:
             Amenity.objects.create(name=a)
-        self.stdout.write(self.style.SUCCESS("Amenities created!"))
+        self.stdout.write(self.style.SUCCESS(f"{len(amenities)} Amenities 생성완료!"))
