@@ -32,7 +32,17 @@ class RoomAdmin(admin.ModelAdmin):
         ("호스트정보", {"fields": ("host",)}),
         (
             "기본정보",
-            {"fields": ("name", "description", "country", "city", "address", "price")},
+            {
+                "fields": (
+                    "name",
+                    "description",
+                    "country",
+                    "city",
+                    "address",
+                    "price",
+                    'room_type",',
+                )
+            },
         ),
         ("운영정보", {"fields": ("check_in", "check_out", "instant_book")}),
         ("방정보", {"fields": ("guests", "beds", "bedrooms", "baths")}),
